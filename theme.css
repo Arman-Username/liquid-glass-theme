@@ -1,101 +1,406 @@
-/* ============================================
-   LIQUID GLASS THEME - Apple Sophisticated Style
-   ============================================ */
+/* ==========================================================
+   Liquid Glass MVP
+   Apple-inspired foundation for Obsidian
+   ========================================================== */
 
-/* === Main App Background === */
-.app-container {
-    background: rgba(var(--color-base-00-rgb), 0.92);
+/* ==========================================================
+   DESIGN TOKENS
+   ========================================================== */
+
+:root {
+
+    /* Radii */
+    --lg-radius-s: 10px;
+    --lg-radius-m: 14px;
+    --lg-radius-l: 18px;
+
+    /* Borders */
+    --lg-border:
+        rgba(255,255,255,.12);
+
+    /* Shadows */
+    --lg-shadow-s:
+        0 1px 2px rgba(0,0,0,.04),
+        0 4px 10px rgba(0,0,0,.06);
+
+    --lg-shadow-m:
+        0 1px 2px rgba(0,0,0,.05),
+        0 8px 24px rgba(0,0,0,.12);
+
+    --lg-shadow-l:
+        0 2px 6px rgba(0,0,0,.08),
+        0 18px 48px rgba(0,0,0,.18);
+
+    /* Highlight */
+    --lg-highlight:
+        inset 0 1px 0 rgba(255,255,255,.18);
+
 }
 
-/* === Tab Bar (Premium Glass) === */
-.workspace-tab-header-container {
-    background: rgba(var(--color-base-00-rgb), 0.72) !important;
-    backdrop-filter: blur(26px) saturate(180%) !important;
-    -webkit-backdrop-filter: blur(26px) saturate(180%) !important;
-    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.18) inset !important;
-    border-bottom: 1px solid rgba(var(--color-base-30-rgb), 0.55) !important;
+/* ==========================================================
+   APP
+   ========================================================== */
+
+.app-container{
+
+    background:
+        rgba(var(--color-base-00-rgb), .96);
+
 }
 
-/* Tab styling */
-.workspace-tab-header {
-    background: rgba(var(--color-base-10-rgb), 0.25) !important;
-    border: 1px solid rgba(var(--color-base-30-rgb), 0.25) !important;
-    border-radius: 11px !important;
-    margin: 6px 4px !important;
-    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+/* ==========================================================
+   SIDEBARS
+   ========================================================== */
+
+.workspace-split.mod-left-split,
+.workspace-split.mod-right-split{
+
+    background:
+        rgba(var(--color-base-00-rgb), .68);
+
+    backdrop-filter:
+        blur(18px) saturate(170%) brightness(1.03);
+
+    -webkit-backdrop-filter:
+        blur(18px) saturate(170%) brightness(1.03);
+
 }
 
-.workspace-tab-header.is-active {
-    background: rgba(var(--color-base-00-rgb), 0.92) !important;
-    border-color: rgba(var(--color-base-30-rgb), 0.45) !important;
-    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.25) inset,
-                0 2px 8px rgba(0, 0, 0, 0.12) !important;
+/* ==========================================================
+   RIBBON
+   ========================================================== */
+
+.workspace-ribbon{
+
+    background:
+        rgba(var(--color-base-00-rgb), .62);
+
+    backdrop-filter:
+        blur(16px);
+
 }
 
-.workspace-tab-header:hover:not(.is-active) {
-    background: rgba(var(--color-base-10-rgb), 0.4) !important;
+/* ==========================================================
+   STATUS BAR
+   ========================================================== */
+
+.status-bar{
+
+    background:
+        rgba(var(--color-base-00-rgb), .65);
+
+    backdrop-filter:
+        blur(16px);
+
+    border-top:
+        1px solid var(--lg-border);
+
 }
 
-/* === Sidebars (Left & Right) === */
-.workspace-split.mod-left-split .workspace-leaf,
-.workspace-split.mod-right-split .workspace-leaf {
-    background: rgba(var(--color-base-00-rgb), 0.65) !important;
-    backdrop-filter: blur(20px) saturate(160%) !important;
-    -webkit-backdrop-filter: blur(20px) saturate(160%) !important;
-    border-right: 1px solid rgba(var(--color-base-30-rgb), 0.4) !important;
+/* ==========================================================
+   SAFARI TAB BAR
+   ========================================================== */
+
+.workspace-tab-header-container{
+
+    background:
+        rgba(var(--color-base-00-rgb), .74);
+
+    backdrop-filter:
+        blur(26px)
+        saturate(185%)
+        brightness(1.05);
+
+    -webkit-backdrop-filter:
+        blur(26px)
+        saturate(185%)
+        brightness(1.05);
+
+    border-bottom:
+        1px solid rgba(255,255,255,.08);
+
+    box-shadow:
+
+        inset 0 1px 0 rgba(255,255,255,.15);
+
+    padding:
+
+        6px
+        8px;
+
 }
 
-/* === Modals & Popups === */
+/* ==========================================================
+   SAFARI TABS
+   ========================================================== */
+
+.workspace-tab-header{
+
+    min-height:34px;
+
+    margin:4px;
+
+    padding:0 14px;
+
+    border-radius:14px;
+
+    background:
+
+        linear-gradient(
+
+            180deg,
+
+            rgba(255,255,255,.07),
+
+            rgba(255,255,255,.02)
+
+        );
+
+    border:
+
+        1px solid transparent;
+
+    box-shadow:
+
+        inset 0 1px 0 rgba(255,255,255,.08);
+
+    transition:
+
+        transform .22s cubic-bezier(.2,.8,.2,1),
+
+        background-color .22s,
+
+        box-shadow .22s,
+
+        border-color .22s;
+
+}
+
+.workspace-tab-header:hover{
+
+    transform:
+        translateY(-1px);
+
+    background:
+
+        linear-gradient(
+
+            180deg,
+
+            rgba(255,255,255,.12),
+
+            rgba(255,255,255,.05)
+
+        );
+
+    border-color:
+
+        rgba(255,255,255,.08);
+
+    box-shadow:
+
+        inset 0 1px 0 rgba(255,255,255,.14),
+
+        var(--lg-shadow-s);
+
+}
+
+.workspace-tab-header.is-active{
+
+    transform:
+        translateY(-1px);
+
+    background:
+
+        linear-gradient(
+
+            180deg,
+
+            rgba(255,255,255,.22),
+
+            rgba(255,255,255,.08)
+
+        ),
+
+        rgba(var(--color-base-00-rgb), .84);
+
+    border:
+
+        1px solid rgba(255,255,255,.14);
+
+    backdrop-filter:
+
+        blur(22px)
+        saturate(190%)
+        brightness(1.06);
+
+    -webkit-backdrop-filter:
+
+        blur(22px)
+        saturate(190%)
+        brightness(1.06);
+
+    box-shadow:
+
+        var(--lg-highlight),
+
+        var(--lg-shadow-m);
+
+}
+
+.workspace-tab-header-inner-title{
+
+    font-weight:500;
+
+    transition:
+
+        color .2s;
+
+}
+
+.workspace-tab-header.is-active
+.workspace-tab-header-inner-title{
+
+    font-weight:600;
+
+}
+
+/* ==========================================================
+   MODALS
+   ========================================================== */
+
 .modal,
 .prompt,
-.suggestion-container {
-    background: rgba(var(--color-base-00-rgb), 0.78) !important;
-    backdrop-filter: blur(28px) saturate(180%) !important;
-    -webkit-backdrop-filter: blur(28px) saturate(180%) !important;
-    border: 1px solid rgba(var(--color-base-30-rgb), 0.5) !important;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25) !important;
-    border-radius: 16px !important;
+.suggestion-container{
+
+    background:
+
+        rgba(var(--color-base-00-rgb), .82);
+
+    backdrop-filter:
+
+        blur(30px)
+        saturate(190%)
+        brightness(1.06);
+
+    -webkit-backdrop-filter:
+
+        blur(30px)
+        saturate(190%)
+        brightness(1.06);
+
+    border:
+
+        1px solid var(--lg-border);
+
+    border-radius:
+
+        var(--lg-radius-l);
+
+    box-shadow:
+
+        var(--lg-highlight),
+
+        var(--lg-shadow-l);
+
 }
 
-/* === Command Palette === */
-.command-palette {
-    background: rgba(var(--color-base-00-rgb), 0.82) !important;
-    backdrop-filter: blur(24px) !important;
+/* ==========================================================
+   BUTTONS
+   ========================================================== */
+
+button{
+
+    border-radius:
+
+        var(--lg-radius-s);
+
+    border:
+
+        1px solid rgba(255,255,255,.08);
+
+    background:
+
+        rgba(255,255,255,.05);
+
+    transition:
+
+        transform .18s ease,
+
+        background-color .18s ease,
+
+        border-color .18s ease;
+
 }
 
-/* === Settings === */
-.modal.mod-settings {
-    background: rgba(var(--color-base-00-rgb), 0.75) !important;
-    backdrop-filter: blur(22px) saturate(170%) !important;
+button:hover{
+
+    transform:
+
+        translateY(-1px);
+
+    background:
+
+        rgba(255,255,255,.10);
+
 }
 
-/* === Ribbon (when visible) === */
-.workspace-ribbon {
-    background: rgba(var(--color-base-00-rgb), 0.6) !important;
-    backdrop-filter: blur(16px) !important;
+button:active{
+
+    transform:
+
+        translateY(0);
+
 }
 
-/* === Status Bar === */
-.status-bar {
-    background: rgba(var(--color-base-00-rgb), 0.65) !important;
-    backdrop-filter: blur(16px) !important;
-    border-top: 1px solid rgba(var(--color-base-30-rgb), 0.4) !important;
-}
+/* ==========================================================
+   INPUTS
+   ========================================================== */
 
-/* === Properties & Callouts (subtle glass) === */
-.metadata-container,
-.callout {
-    background: rgba(var(--color-base-10-rgb), 0.3) !important;
-    border: 1px solid rgba(var(--color-base-30-rgb), 0.25) !important;
-    backdrop-filter: blur(12px) !important;
-}
-
-/* === Buttons & Inputs === */
-button.mod-cta,
 input,
 textarea,
-select {
-    background: rgba(var(--color-base-10-rgb), 0.35) !important;
-    border: 1px solid rgba(var(--color-base-30-rgb), 0.3) !important;
-    backdrop-filter: blur(8px) !important;
+select{
+
+    border-radius:
+
+        var(--lg-radius-s);
+
+    background:
+
+        rgba(255,255,255,.04);
+
+    border:
+
+        1px solid rgba(255,255,255,.08);
+
+}
+
+input:focus,
+textarea:focus{
+
+    border-color:
+
+        var(--interactive-accent);
+
+}
+
+/* ==========================================================
+   CALLOUTS / PROPERTIES
+   ========================================================== */
+
+.callout,
+.metadata-container{
+
+    background:
+
+        rgba(255,255,255,.04);
+
+    border:
+
+        1px solid rgba(255,255,255,.08);
+
+    border-radius:
+
+        var(--lg-radius-m);
+
 }
