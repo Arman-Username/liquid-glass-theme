@@ -1,0 +1,101 @@
+/* ============================================
+   LIQUID GLASS THEME - Apple Sophisticated Style
+   ============================================ */
+
+/* === Main App Background === */
+.app-container {
+    background: rgba(var(--color-base-00-rgb), 0.92);
+}
+
+/* === Tab Bar (Premium Glass) === */
+.workspace-tab-header-container {
+    background: rgba(var(--color-base-00-rgb), 0.72) !important;
+    backdrop-filter: blur(26px) saturate(180%) !important;
+    -webkit-backdrop-filter: blur(26px) saturate(180%) !important;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.18) inset !important;
+    border-bottom: 1px solid rgba(var(--color-base-30-rgb), 0.55) !important;
+}
+
+/* Tab styling */
+.workspace-tab-header {
+    background: rgba(var(--color-base-10-rgb), 0.25) !important;
+    border: 1px solid rgba(var(--color-base-30-rgb), 0.25) !important;
+    border-radius: 11px !important;
+    margin: 6px 4px !important;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.workspace-tab-header.is-active {
+    background: rgba(var(--color-base-00-rgb), 0.92) !important;
+    border-color: rgba(var(--color-base-30-rgb), 0.45) !important;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.25) inset,
+                0 2px 8px rgba(0, 0, 0, 0.12) !important;
+}
+
+.workspace-tab-header:hover:not(.is-active) {
+    background: rgba(var(--color-base-10-rgb), 0.4) !important;
+}
+
+/* === Sidebars (Left & Right) === */
+.workspace-split.mod-left-split .workspace-leaf,
+.workspace-split.mod-right-split .workspace-leaf {
+    background: rgba(var(--color-base-00-rgb), 0.65) !important;
+    backdrop-filter: blur(20px) saturate(160%) !important;
+    -webkit-backdrop-filter: blur(20px) saturate(160%) !important;
+    border-right: 1px solid rgba(var(--color-base-30-rgb), 0.4) !important;
+}
+
+/* === Modals & Popups === */
+.modal,
+.prompt,
+.suggestion-container {
+    background: rgba(var(--color-base-00-rgb), 0.78) !important;
+    backdrop-filter: blur(28px) saturate(180%) !important;
+    -webkit-backdrop-filter: blur(28px) saturate(180%) !important;
+    border: 1px solid rgba(var(--color-base-30-rgb), 0.5) !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25) !important;
+    border-radius: 16px !important;
+}
+
+/* === Command Palette === */
+.command-palette {
+    background: rgba(var(--color-base-00-rgb), 0.82) !important;
+    backdrop-filter: blur(24px) !important;
+}
+
+/* === Settings === */
+.modal.mod-settings {
+    background: rgba(var(--color-base-00-rgb), 0.75) !important;
+    backdrop-filter: blur(22px) saturate(170%) !important;
+}
+
+/* === Ribbon (when visible) === */
+.workspace-ribbon {
+    background: rgba(var(--color-base-00-rgb), 0.6) !important;
+    backdrop-filter: blur(16px) !important;
+}
+
+/* === Status Bar === */
+.status-bar {
+    background: rgba(var(--color-base-00-rgb), 0.65) !important;
+    backdrop-filter: blur(16px) !important;
+    border-top: 1px solid rgba(var(--color-base-30-rgb), 0.4) !important;
+}
+
+/* === Properties & Callouts (subtle glass) === */
+.metadata-container,
+.callout {
+    background: rgba(var(--color-base-10-rgb), 0.3) !important;
+    border: 1px solid rgba(var(--color-base-30-rgb), 0.25) !important;
+    backdrop-filter: blur(12px) !important;
+}
+
+/* === Buttons & Inputs === */
+button.mod-cta,
+input,
+textarea,
+select {
+    background: rgba(var(--color-base-10-rgb), 0.35) !important;
+    border: 1px solid rgba(var(--color-base-30-rgb), 0.3) !important;
+    backdrop-filter: blur(8px) !important;
+}
