@@ -1,0 +1,7 @@
+{
+  "name": "Liquid Glass",
+  "version": "1.0.0",
+  "minAppVersion": "1.4.0",
+  "author": "Built with Grok",
+  "description": "Sophisticated Apple-style liquid glass across Obsidian UI (tabs, sidebars, modals)"
+}
