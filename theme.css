@@ -392,116 +392,89 @@ table,
 }
 
 /* =====================================================
-   LIQUID GLASS TAB BAR (Desktop + Mobile)
+   CLEAN & PERFECT TAB BAR
    ===================================================== */
 
-/* Main tab container - Glass effect */
+/* Tab container */
 .workspace-tab-header-container {
-  background: var(--glass-bg) !important;
-  backdrop-filter: var(--glass-blur);
-  -webkit-backdrop-filter: var(--glass-blur);
-  border-bottom: 1px solid var(--glass-border);
-  padding: 4px 8px 0 8px;
-  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
-  margin: 8px 8px 0 8px;
-}
-
-/* Individual tabs */
-.workspace-tab-header {
   background: transparent;
-  border-radius: var(--radius-md) var(--radius-md) 0 0;
-  margin-right: 4px;
-  padding: 8px 16px;
-  transition: all 0.2s cubic-bezier(0.23, 1, 0.32, 1);
-  border: 1px solid transparent;
-  border-bottom: none;
-  color: var(--text-secondary);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 0 8px;
+  margin: 0;
+}
+
+/* Individual tab */
+.workspace-tab-header {
+  padding: 8px 14px;
+  margin-right: 2px;
+  border-radius: 8px 8px 0 0;
+  color: var(--text-muted);
+  font-size: 13.5px;
   font-weight: 500;
-  font-size: 14px;
+  transition: all 0.15s ease;
+  max-width: 220px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-/* Tab hover */
+/* Hover state */
 .workspace-tab-header:hover {
-  background: var(--glass-bg-light);
   color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.04);
 }
 
-/* Active tab - more prominent glass */
+/* Active tab - clean and clear */
 .workspace-tab-header.is-active {
-  background: rgba(255, 255, 255, 0.12);
   color: white;
   font-weight: 600;
-  border: 1px solid var(--glass-border);
-  border-bottom: 1px solid var(--glass-bg);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  background: rgba(255, 255, 255, 0.06);
+  border-bottom: 2px solid #0A84FF;
 }
 
-/* Tab close button */
+/* Close button */
 .workspace-tab-header .workspace-tab-header-inner-close-button {
-  opacity: 0.5;
+  opacity: 0.4;
   transition: opacity 0.2s ease;
 }
 
 .workspace-tab-header:hover .workspace-tab-header-inner-close-button {
-  opacity: 1;
+  opacity: 0.9;
 }
 
 /* New tab button */
 .workspace-tab-header-new-tab {
-  background: var(--glass-bg-light);
-  border-radius: 50%;
-  width: 28px;
-  height: 28px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 6px;
   margin-left: 6px;
+  color: var(--text-muted);
   transition: all 0.2s ease;
 }
 
 .workspace-tab-header-new-tab:hover {
-  background: rgba(255, 255, 255, 0.18);
-  transform: scale(1.05);
+  background: rgba(255, 255, 255, 0.08);
+  color: white;
 }
 
 /* =====================================================
-   LIQUID GLASS MOBILE TABS / BOTTOM NAVIGATION
+   MOBILE TAB BAR (Clean version)
    ===================================================== */
 
 .is-mobile .workspace-tab-header-container {
-  background: var(--glass-bg) !important;
-  backdrop-filter: var(--glass-blur);
-  -webkit-backdrop-filter: var(--glass-blur);
-  border-top: 1px solid var(--glass-border);
-  border-bottom: none;
-  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
-  padding: 6px 12px;
-  margin: 0;
-  position: sticky;
-  bottom: 0;
-  z-index: 100;
+  background: transparent;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 4px 8px;
 }
 
-/* Mobile tab items */
 .is-mobile .workspace-tab-header {
-  padding: 10px 14px;
+  padding: 10px 12px;
   font-size: 13px;
-  border-radius: var(--radius-md);
+  max-width: 160px;
 }
 
 .is-mobile .workspace-tab-header.is-active {
-  background: rgba(10, 132, 255, 0.2);
+  background: rgba(10, 132, 255, 0.15);
   color: white;
-  border: 1px solid rgba(10, 132, 255, 0.4);
-}
-
-/* Mobile new tab / actions */
-.is-mobile .workspace-tab-header-new-tab {
-  width: 32px;
-  height: 32px;
-}
-
-/* Optional: Make mobile tab bar more compact and glassy */
-.is-mobile .mod-root .workspace-split {
-  margin-bottom: 60px; /* Give space for floating glass tab bar */
+  border-bottom: 2px solid #0A84FF;
 }
