@@ -1,406 +1,392 @@
-/* ==========================================================
-   Liquid Glass MVP
-   Apple-inspired foundation for Obsidian
-   ========================================================== */
+/* =====================================================
+   LIQUID GLASS — Premium Standalone Obsidian Theme
+   Apple-inspired frosted glass / liquid glass design
+   Version 1.0.0
+   ===================================================== */
 
-/* ==========================================================
-   DESIGN TOKENS
-   ========================================================== */
-
+/* ========== ROOT VARIABLES ========== */
 :root {
+  /* Glass & Backgrounds */
+  --glass-bg: rgba(20, 20, 24, 0.55);
+  --glass-bg-light: rgba(255, 255, 255, 0.08);
+  --glass-border: rgba(255, 255, 255, 0.12);
+  --glass-border-strong: rgba(255, 255, 255, 0.18);
+  --glass-blur: blur(28px);
+  --glass-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
 
-    /* Radii */
-    --lg-radius-s: 10px;
-    --lg-radius-m: 14px;
-    --lg-radius-l: 18px;
+  /* Colors */
+  --accent-color: #0A84FF; /* Apple Blue */
+  --accent-hover: #409CFF;
+  --text-primary: rgba(255, 255, 255, 0.95);
+  --text-secondary: rgba(255, 255, 255, 0.7);
+  --text-muted: rgba(255, 255, 255, 0.5);
 
-    /* Borders */
-    --lg-border:
-        rgba(255,255,255,.12);
+  /* Backgrounds */
+  --bg-primary: #0f0f12;
+  --bg-secondary: #16161a;
+  --bg-tertiary: #1c1c21;
 
-    /* Shadows */
-    --lg-shadow-s:
-        0 1px 2px rgba(0,0,0,.04),
-        0 4px 10px rgba(0,0,0,.06);
+  /* Typography */
+  --font-text: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", system-ui, sans-serif;
+  --font-heading: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", system-ui, sans-serif;
 
-    --lg-shadow-m:
-        0 1px 2px rgba(0,0,0,.05),
-        0 8px 24px rgba(0,0,0,.12);
-
-    --lg-shadow-l:
-        0 2px 6px rgba(0,0,0,.08),
-        0 18px 48px rgba(0,0,0,.18);
-
-    /* Highlight */
-    --lg-highlight:
-        inset 0 1px 0 rgba(255,255,255,.18);
-
+  /* Spacing & Radius */
+  --radius-lg: 18px;
+  --radius-md: 14px;
+  --radius-sm: 10px;
 }
 
-/* ==========================================================
-   APP
-   ========================================================== */
-
-.app-container{
-
-    background:
-        rgba(var(--color-base-00-rgb), .96);
-
+/* ========== BASE ========== */
+body {
+  font-family: var(--font-text);
+  color: var(--text-primary);
+  background-color: var(--bg-primary);
 }
 
-/* ==========================================================
-   SIDEBARS
-   ========================================================== */
+.theme-dark {
+  --background-primary: var(--bg-primary);
+  --background-secondary: var(--bg-secondary);
+  --background-modifier-hover: rgba(255, 255, 255, 0.06);
+  --text-normal: var(--text-primary);
+  --text-muted: var(--text-muted);
+}
 
+/* ========== WORKSPACE & PANES ========== */
+.workspace {
+  background: var(--bg-primary);
+}
+
+.workspace-split {
+  background: transparent;
+}
+
+.mod-root .workspace-leaf {
+  background: transparent;
+}
+
+/* Main editor/preview container - Glass effect */
+.mod-root .markdown-preview-view,
+.mod-root .cm-editor,
+.mod-root .cm-scroller {
+  background: var(--glass-bg) !important;
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--glass-shadow);
+}
+
+/* ========== SIDEBARS (File Explorer, etc.) ========== */
 .workspace-split.mod-left-split,
-.workspace-split.mod-right-split{
-
-    background:
-        rgba(var(--color-base-00-rgb), .68);
-
-    backdrop-filter:
-        blur(18px) saturate(170%) brightness(1.03);
-
-    -webkit-backdrop-filter:
-        blur(18px) saturate(170%) brightness(1.03);
-
+.workspace-split.mod-right-split {
+  background: var(--glass-bg) !important;
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border-right: 1px solid var(--glass-border);
 }
 
-/* ==========================================================
-   RIBBON
-   ========================================================== */
-
-.workspace-ribbon{
-
-    background:
-        rgba(var(--color-base-00-rgb), .62);
-
-    backdrop-filter:
-        blur(16px);
-
+.nav-folder-title,
+.nav-file-title {
+  border-radius: var(--radius-sm);
+  transition: background 0.15s ease;
 }
 
-/* ==========================================================
-   STATUS BAR
-   ========================================================== */
-
-.status-bar{
-
-    background:
-        rgba(var(--color-base-00-rgb), .65);
-
-    backdrop-filter:
-        blur(16px);
-
-    border-top:
-        1px solid var(--lg-border);
-
+.nav-folder-title:hover,
+.nav-file-title:hover {
+  background: var(--glass-bg-light);
 }
 
-/* ==========================================================
-   SAFARI TAB BAR
-   ========================================================== */
-
-.workspace-tab-header-container{
-
-    background:
-        rgba(var(--color-base-00-rgb), .74);
-
-    backdrop-filter:
-        blur(26px)
-        saturate(185%)
-        brightness(1.05);
-
-    -webkit-backdrop-filter:
-        blur(26px)
-        saturate(185%)
-        brightness(1.05);
-
-    border-bottom:
-        1px solid rgba(255,255,255,.08);
-
-    box-shadow:
-
-        inset 0 1px 0 rgba(255,255,255,.15);
-
-    padding:
-
-        6px
-        8px;
-
+/* Active file */
+.nav-file-title.is-active {
+  background: rgba(10, 132, 255, 0.15);
+  color: white;
+  font-weight: 500;
 }
 
-/* ==========================================================
-   SAFARI TABS
-   ========================================================== */
-
-.workspace-tab-header{
-
-    min-height:34px;
-
-    margin:4px;
-
-    padding:0 14px;
-
-    border-radius:14px;
-
-    background:
-
-        linear-gradient(
-
-            180deg,
-
-            rgba(255,255,255,.07),
-
-            rgba(255,255,255,.02)
-
-        );
-
-    border:
-
-        1px solid transparent;
-
-    box-shadow:
-
-        inset 0 1px 0 rgba(255,255,255,.08);
-
-    transition:
-
-        transform .22s cubic-bezier(.2,.8,.2,1),
-
-        background-color .22s,
-
-        box-shadow .22s,
-
-        border-color .22s;
-
+/* ========== RIBBON (Left sidebar icons) ========== */
+.workspace-ribbon {
+  background: var(--glass-bg) !important;
+  backdrop-filter: var(--glass-blur);
+  border-right: 1px solid var(--glass-border);
 }
 
-.workspace-tab-header:hover{
-
-    transform:
-        translateY(-1px);
-
-    background:
-
-        linear-gradient(
-
-            180deg,
-
-            rgba(255,255,255,.12),
-
-            rgba(255,255,255,.05)
-
-        );
-
-    border-color:
-
-        rgba(255,255,255,.08);
-
-    box-shadow:
-
-        inset 0 1px 0 rgba(255,255,255,.14),
-
-        var(--lg-shadow-s);
-
+/* ========== STATUS BAR ========== */
+.status-bar {
+  background: var(--glass-bg) !important;
+  backdrop-filter: var(--glass-blur);
+  border-top: 1px solid var(--glass-border);
+  color: var(--text-secondary);
+  font-size: 12px;
 }
 
-.workspace-tab-header.is-active{
-
-    transform:
-        translateY(-1px);
-
-    background:
-
-        linear-gradient(
-
-            180deg,
-
-            rgba(255,255,255,.22),
-
-            rgba(255,255,255,.08)
-
-        ),
-
-        rgba(var(--color-base-00-rgb), .84);
-
-    border:
-
-        1px solid rgba(255,255,255,.14);
-
-    backdrop-filter:
-
-        blur(22px)
-        saturate(190%)
-        brightness(1.06);
-
-    -webkit-backdrop-filter:
-
-        blur(22px)
-        saturate(190%)
-        brightness(1.06);
-
-    box-shadow:
-
-        var(--lg-highlight),
-
-        var(--lg-shadow-m);
-
+/* ========== HEADERS ========== */
+.view-header {
+  background: transparent;
+  border-bottom: 1px solid var(--glass-border);
 }
 
-.workspace-tab-header-inner-title{
-
-    font-weight:500;
-
-    transition:
-
-        color .2s;
-
+.view-header-title-container {
+  font-family: var(--font-heading);
+  font-weight: 600;
 }
 
-.workspace-tab-header.is-active
-.workspace-tab-header-inner-title{
-
-    font-weight:600;
-
+/* ========== EDITOR ========== */
+.cm-editor {
+  font-family: var(--font-text);
+  font-size: 15.5px;
+  line-height: 1.7;
 }
 
-/* ==========================================================
-   MODALS
-   ========================================================== */
-
-.modal,
-.prompt,
-.suggestion-container{
-
-    background:
-
-        rgba(var(--color-base-00-rgb), .82);
-
-    backdrop-filter:
-
-        blur(30px)
-        saturate(190%)
-        brightness(1.06);
-
-    -webkit-backdrop-filter:
-
-        blur(30px)
-        saturate(190%)
-        brightness(1.06);
-
-    border:
-
-        1px solid var(--lg-border);
-
-    border-radius:
-
-        var(--lg-radius-l);
-
-    box-shadow:
-
-        var(--lg-highlight),
-
-        var(--lg-shadow-l);
-
+.cm-line {
+  padding-top: 2px;
+  padding-bottom: 2px;
 }
 
-/* ==========================================================
-   BUTTONS
-   ========================================================== */
-
-button{
-
-    border-radius:
-
-        var(--lg-radius-s);
-
-    border:
-
-        1px solid rgba(255,255,255,.08);
-
-    background:
-
-        rgba(255,255,255,.05);
-
-    transition:
-
-        transform .18s ease,
-
-        background-color .18s ease,
-
-        border-color .18s ease;
-
+/* ========== PREVIEW / MARKDOWN ========== */
+.markdown-preview-view {
+  font-size: 15.5px;
+  line-height: 1.7;
+  padding: 32px 48px;
 }
 
-button:hover{
-
-    transform:
-
-        translateY(-1px);
-
-    background:
-
-        rgba(255,255,255,.10);
-
+/* Headings - Apple style */
+h1, .markdown-preview-view h1 {
+  font-family: var(--font-heading);
+  font-size: 2.1rem;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  margin-top: 2em;
+  margin-bottom: 0.6em;
 }
 
-button:active{
-
-    transform:
-
-        translateY(0);
-
+h2, .markdown-preview-view h2 {
+  font-family: var(--font-heading);
+  font-size: 1.55rem;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  margin-top: 1.8em;
+  margin-bottom: 0.5em;
 }
 
-/* ==========================================================
-   INPUTS
-   ========================================================== */
-
-input,
-textarea,
-select{
-
-    border-radius:
-
-        var(--lg-radius-s);
-
-    background:
-
-        rgba(255,255,255,.04);
-
-    border:
-
-        1px solid rgba(255,255,255,.08);
-
+h2::after {
+  content: '';
+  display: block;
+  width: 48px;
+  height: 1px;
+  background: linear-gradient(to right, rgba(255,255,255,0.2), transparent);
+  margin-top: 10px;
 }
 
-input:focus,
-textarea:focus{
-
-    border-color:
-
-        var(--interactive-accent);
-
+h3 {
+  font-weight: 600;
+  font-size: 1.25rem;
+  margin-top: 1.5em;
 }
 
-/* ==========================================================
-   CALLOUTS / PROPERTIES
-   ========================================================== */
+/* ========== GLASS CARDS ========== */
+.callout {
+  background: var(--glass-bg-light) !important;
+  backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border) !important;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--glass-shadow);
+  padding: 20px 24px;
+  margin: 20px 0;
+  transition: all 0.2s cubic-bezier(0.23, 1, 0.32, 1);
+}
 
+.callout:hover {
+  background: rgba(255, 255, 255, 0.09) !important;
+  border-color: var(--glass-border-strong) !important;
+}
+
+.callout-title {
+  font-weight: 600;
+  font-size: 15px;
+}
+
+/* ========== PROPERTIES (Frontmatter) ========== */
+.metadata-container {
+  background: var(--glass-bg-light);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+  padding: 18px 22px;
+  margin-bottom: 28px;
+}
+
+.metadata-property {
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.metadata-property:last-child {
+  border-bottom: none;
+}
+
+.metadata-property-key {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+/* ========== TABLES ========== */
+table {
+  background: var(--glass-bg-light);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  backdrop-filter: blur(16px);
+}
+
+th {
+  background: rgba(255, 255, 255, 0.08);
+  font-weight: 600;
+  padding: 14px 18px;
+  color: var(--text-secondary);
+}
+
+td {
+  padding: 14px 18px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* ========== LISTS & TASKS ========== */
+.task-list-item {
+  padding: 5px 0;
+  transition: background 0.15s ease;
+}
+
+.task-list-item:hover {
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 8px;
+  padding-left: 10px;
+  margin-left: -10px;
+}
+
+/* ========== BLOCKQUOTES ========== */
+blockquote {
+  background: var(--glass-bg-light);
+  border-left: 4px solid var(--accent-color);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  padding: 18px 22px;
+  color: var(--text-secondary);
+}
+
+/* ========== CODE ========== */
+pre {
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+  padding: 18px;
+  backdrop-filter: blur(12px);
+}
+
+/* ========== MODALS & POPOVERS ========== */
+.modal {
+  background: var(--glass-bg) !important;
+  backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--glass-shadow);
+}
+
+.modal-bg {
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(8px);
+}
+
+/* Command Palette */
+.prompt {
+  background: var(--glass-bg) !important;
+  backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+}
+
+.suggestion-item {
+  border-radius: var(--radius-sm);
+}
+
+.suggestion-item.is-selected {
+  background: rgba(10, 132, 255, 0.2);
+}
+
+/* ========== BUTTONS ========== */
+button.mod-cta,
+button {
+  background: var(--glass-bg-light);
+  border: 1px solid var(--glass-border);
+  border-radius: 999px;
+  padding: 8px 20px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+button.mod-cta:hover,
+button:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: var(--glass-border-strong);
+  transform: translateY(-1px);
+}
+
+/* ========== LINKS ========== */
+a {
+  color: var(--accent-color);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--accent-hover);
+  text-decoration: underline;
+}
+
+/* ========== FOCUS / CLEAN READING ========== */
+.is-focused .markdown-preview-view {
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ========== ANIMATIONS ========== */
 .callout,
-.metadata-container{
+table,
+.metadata-container,
+.modal {
+  animation: glassAppear 0.35s cubic-bezier(0.23, 1.0, 0.32, 1.0);
+}
 
-    background:
+@keyframes glassAppear {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
-        rgba(255,255,255,.04);
+/* ========== ACCESSIBILITY & FINAL POLISH ========== */
+:focus-visible {
+  outline: 2px solid var(--accent-color);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
 
-    border:
+/* Subtle scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
 
-        1px solid rgba(255,255,255,.08);
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+}
 
-    border-radius:
-
-        var(--lg-radius-m);
-
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.35);
 }
